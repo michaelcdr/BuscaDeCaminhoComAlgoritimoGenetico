@@ -1,0 +1,40 @@
+﻿#labirinto {
+    width: 100%;
+}
+    #labirinto td {
+        border: 1px solid #f5b9b9;
+    }
+    #labirinto tr:first-child td {
+        border-top: 3px solid #8a0d0d;
+    }
+    #labirinto td {
+        height: 50px;
+        background-color: #e1e58c;
+    }
+    #labirinto tr:last-child td {
+        border-bottom: 3px solid #8a0d0d;
+    }
+.parede1 {
+    border-top: 3px solid #8a0d0d !important;
+    border-right: 3px solid #8a0d0d !important;
+}
+.parede2 {
+    border-bottom: 3px solid #8a0d0d !important;
+    border-right: 3px solid #8a0d0d !important;
+}
+.parede3 {
+    border-left: 3px solid #8a0d0d !important;
+    border-top: 3px solid #8a0d0d !important;
+    border-right: 3px solid #8a0d0d !important;
+}
+#labirinto tr:last-child td:last-child {
+    border-right: 3px solid #8a0d0d;
+}
+#labirinto tr:nth-child(2) td:last-child {
+    border-right: 2px solid #8a0d0d;
+}
+#labirinto tr:nth-child(1) td:first-child,
+#labirinto tr:nth-child(2) td:first-child,
+#labirinto tr:nth-child(3) td:first-child {
+    border-left: 2px solid #8a0d0d;
+}
