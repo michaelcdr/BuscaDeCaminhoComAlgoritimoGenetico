@@ -1,10 +1,21 @@
-﻿using System;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace AG.Web.Domain
 {
+    public class PopulacaoComIndividuos
+    {
+        public List<Individuo> Individuos { get; private set; }
+
+        public PopulacaoComIndividuos(List<Individuo> individuos)
+        {
+            this.Individuos = individuos;
+        }
+    }
+
     public class Populacao
     {
+
         private Individuo[] individuos;
 
         private int tamPopulacao;
@@ -51,7 +62,7 @@ namespace AG.Web.Domain
         /// <returns></returns>
         public bool VerificarSeTemSolucao()
         {
-            return individuos.Any(individuoAtual => individuoAtual._temSolucao);
+            return individuos.Any(individuoAtual => individuoAtual.TemSolucao);
         }
 
         /// <summary>
@@ -99,6 +110,11 @@ namespace AG.Web.Domain
         public Individuo getIndividuo(int pos)
         {
             return individuos[pos];
+        }
+
+        public List<Individuo> ObterIndividuos()
+        {
+            return this.individuos.ToList();
         }
     }
 }

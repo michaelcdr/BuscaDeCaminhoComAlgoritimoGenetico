@@ -8,6 +8,7 @@ namespace AG.Web.Domain
         private static string _caracteres;
         private static double _taxaDeCrossover;
         private static double _taxaDeMutacao;
+
         public static void AtualizarCaracteres(string caracteres)
         {
             _caracteres = caracteres;

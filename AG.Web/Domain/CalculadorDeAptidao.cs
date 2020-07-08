@@ -2,20 +2,7 @@
 
 namespace AG.Web.Domain
 {
-    public class DetalhamentoCalculoDeAptidao
-    {
-        public DetalhamentoCalculoDeAptidao(int aptidao, bool temSolucao)
-        {
-            Aptidao = aptidao;
-            TemSolucao = temSolucao;
-        }
-
-        public int Aptidao { get; private set; }
-        public bool TemSolucao { get; private set; }
-        
-    }
-
-    public static class CalculadorDeAptidao
+    public static partial class CalculadorDeAptidao
     {
         private const int _pontosPorCelulaOcupada = 1;
         private const int _pontosPorAtravessiaDeParedes = 10;
@@ -24,30 +11,34 @@ namespace AG.Web.Domain
         private const string NORTE = "01";
         private const string LESTE = "00";
         private const string OESTE = "10";
-        private const string SUL = "11";
+        private const string SUL   = "11";
 
-        private static List<string> DividirBits(string genes)
+        private static List<string> QuebrarStringACada2Caracteres(string genes)
         {
             List<string> bitsDoCaminho = new List<string>();
+
             string bit = string.Empty;
-            int c = 0;
+            
+            int contador = 0;
+            
             for (int i = 0; i < 12; i++)
             {
                 bit += genes[i];
-                c++;
-                if (c == 2)
+                
+                contador++;
+
+                if (contador == 2)
                 {
                     bitsDoCaminho.Add(bit);
                     bit = string.Empty;
-                    c = 0;
+                    contador = 0;
                 }
             }
             return bitsDoCaminho;
         }
-
         public static DetalhamentoCalculoDeAptidao Calcular(string genes)
         {
-            List<string> bitsDoCaminho = DividirBits(genes);
+            List<string> bitsDoCaminho = QuebrarStringACada2Caracteres(genes);
 
             int aptidao = 0;
             int x = 0;
@@ -56,6 +47,8 @@ namespace AG.Web.Domain
             int posicaoY_Anterior = 0;
             bool saiuCenario = false;
             bool temSolucao = false;
+
+            var coordenadasLista = new List<Coordenadas>();
 
             foreach (var bitDoCaminho in bitsDoCaminho)
             {
@@ -79,13 +72,20 @@ namespace AG.Web.Domain
 
                 posicaoX_Anterior = x;
                 posicaoY_Anterior = y;
+                
+                coordenadasLista.Add(new Coordenadas(x, y));
             }
 
             //saiu do cenario...
             if (saiuCenario)
                 aptidao += _pontosPorSairDoCenario;
 
-            return new DetalhamentoCalculoDeAptidao(aptidao, temSolucao);
+            return new DetalhamentoCalculoDeAptidao(
+                aptidao, 
+                temSolucao,
+                bitsDoCaminho,
+                coordenadasLista
+            );
         }
 
         private static bool VerificarSeChegouNoFim(int x, int y)

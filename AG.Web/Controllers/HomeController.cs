@@ -1,6 +1,9 @@
 ﻿using AG.Web.Domain;
+using AG.Web.Extensions;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AG.Web.Controllers
@@ -19,37 +22,40 @@ namespace AG.Web.Controllers
             return View();
         }
         
-        public IActionResult ObterCaminhos()
+        [HttpPost]
+        public IActionResult ObterResultados(ResultadosRequest request)
         {
             AlgoritimoGenetico.AtualizarCaracteres("01");
-            AlgoritimoGenetico.AtualizarTaxaDeCrossover(0.6);
-            AlgoritimoGenetico.AtualizarTaxaDeMutacao(0.3);
+            AlgoritimoGenetico.AtualizarTaxaDeCrossover(request.TaxaCrossover);
+            AlgoritimoGenetico.AtualizarTaxaDeMutacao(request.TaxaMutacao);
 
-            Populacao populacao = new Populacao(100);
+            Populacao populacao = new Populacao(request.TamanhoPopulacao);
             
             int numMaxGeracoes = 10000;
-            
-            bool eltismo = true;
             
             bool temSolucao = false;
             
             int geracao = 0;
 
             //loop até o critério de parada
+            List<Geracao> geracoes = new List<Geracao>();
+
             while (!temSolucao && geracao < numMaxGeracoes)
             {
                 geracao++;
 
-                //cria nova populacao
-                populacao = AlgoritimoGenetico.NovaGeracao(populacao, eltismo);
+                //cria nova populacao...
+                populacao = AlgoritimoGenetico.NovaGeracao(populacao, request.Eltismo);
 
-                //verifica se tem a solucao
+                //verifica se tem a solucao...
                 temSolucao = populacao.VerificarSeTemSolucao();
+
+                geracoes.Add(new Geracao(populacao.ToPopulacaoComIndividuos(), temSolucao, geracao));
             }
 
             return Json(new {
                 numMaxGeracoes,
-                geracao
+                geracoes
             });
         }
     }

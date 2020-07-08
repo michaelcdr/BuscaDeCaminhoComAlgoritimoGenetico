@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace AG.Web.Domain
@@ -7,9 +8,10 @@ namespace AG.Web.Domain
     {
         private string _genes = string.Empty;
 
-        private int _aptidao = 0;
-        
-        public bool _temSolucao { get; private set; }
+        public int Aptidao  { get; private set; }
+        public bool TemSolucao { get; private set; }
+        public List<string> Bits { get; private set; }
+        public List<Coordenadas> Coordenadas { get; private set; }
 
         /// <summary>
         /// Gera um indivíduo aleatório com o número de genes parametrizado.
@@ -74,13 +76,17 @@ namespace AG.Web.Domain
         {
             DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular(_genes);
 
-            _aptidao = detalhamentoCalculoDeAptidao.Aptidao;
+            Aptidao = detalhamentoCalculoDeAptidao.Aptidao;
 
-            _temSolucao = detalhamentoCalculoDeAptidao.TemSolucao;
+            TemSolucao = detalhamentoCalculoDeAptidao.TemSolucao;
+
+            Bits = detalhamentoCalculoDeAptidao.Bits;
+
+            Coordenadas = detalhamentoCalculoDeAptidao.Coordenadas;
         }
 
         public int ObterAptidao()
-            => _aptidao;
+            => Aptidao;
 
         public string ObterGenes()
             => _genes;

@@ -10,4 +10,3 @@ D:\UCS\2020-01 - Inteligencia computacional\ExemploAlgoritimoGenetico\ExemploAlg
 D:\UCS\2020-01 - Inteligencia computacional\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\obj\Debug\netcoreapp3.1\ExemploAlgoritimoGenetico.dll
 D:\UCS\2020-01 - Inteligencia computacional\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\obj\Debug\netcoreapp3.1\ExemploAlgoritimoGenetico.pdb
 D:\UCS\2020-01 - Inteligencia computacional\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\obj\Debug\netcoreapp3.1\ExemploAlgoritimoGenetico.genruntimeconfig.cache
-D:\UCS\2020-01 - Inteligencia computacional\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\ExemploAlgoritimoGenetico\obj\Debug\netcoreapp3.1\ExemploAlgoritimoGenetico.csprojAssemblyReference.cache
