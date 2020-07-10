@@ -29,7 +29,7 @@ namespace AG.Web.Domain
         public static double ObterTaxaDeMutacao()
             => _taxaDeMutacao;
 
-        public static Populacao NovaGeracao(Populacao populacao, bool elitismo)
+        public static Populacao Gerar(Populacao populacao, bool elitismo)
         {
             Random r = new Random();
 

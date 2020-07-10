@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G44rfWPa6kTg6ZS/lJBE0XTp4O05ZQK7G9clRSxr0L8/U7BgpGaDpjl2mon/nabO5wnWEVaP3/41CmlgVKumMQ==",
+  "dgSpecHash": "FE6kctobV6tOinMqAItXE644Ki++QLKazZukPsQtC6YiM00AEqXBpEgJbM77t/49NauuLVS7yDfrEtqbEstWkw==",
   "success": true,
   "projectFilePath": "D:\\UCS\\2020-01 - Inteligencia computacional\\ExemploAlgoritimoGenetico\\ExemploAlgoritimoGenetico\\AG.Tests\\AG.Tests.csproj",
   "expectedPackageFiles": [
@@ -84,8 +84,7 @@
     "C:\\Users\\michael\\.nuget\\packages\\xunit.core\\2.4.0\\xunit.core.2.4.0.nupkg.sha512",
     "C:\\Users\\michael\\.nuget\\packages\\xunit.extensibility.core\\2.4.0\\xunit.extensibility.core.2.4.0.nupkg.sha512",
     "C:\\Users\\michael\\.nuget\\packages\\xunit.extensibility.execution\\2.4.0\\xunit.extensibility.execution.2.4.0.nupkg.sha512",
-    "C:\\Users\\michael\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.0\\xunit.runner.visualstudio.2.4.0.nupkg.sha512",
-    "C:\\Users\\michael\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+    "C:\\Users\\michael\\.nuget\\packages\\xunit.runner.visualstudio\\2.4.0\\xunit.runner.visualstudio.2.4.0.nupkg.sha512"
   ],
   "logs": []
 }

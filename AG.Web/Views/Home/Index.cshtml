@@ -8,7 +8,7 @@
     <div class="col-md-7 text-center">
         <h4>Busca de caminho via Algoritmo Genético</h4>
     </div>
-    <div class="col-md-5 text-center">
+    <div class="col-md-5 text-left">
         <h4>Detalhes</h4>
     </div>
 </div>
@@ -25,10 +25,12 @@
             <label class="mr-1">Taxa. De Mutação</label>
             <input class="form-control" type="number" style="width:80px;" value="0.3" id="taxaMutacao" placeholder="Taxa Mutação" />
         </div>
-        <div class="form-group">
+        <div class="form-group form-inline">
             <label for="eltismo">
                 <input type="checkbox" id="eltismo" name="eltismo" checked /> Elitismo
             </label>
+            <label class="ml-4 mr-1">Velocidade (ms)</label>
+            <input class="form-control" type="number" style="width:80px;" value="2" id="velocidade" placeholder="Velocidade" />
         </div>
         <table id="labirinto" cellspadding="0" cellspacing="0" border="0">
             <tr>
@@ -280,6 +282,6 @@
 
     </div>
     <div class="col-md-5">
-        <div class="detalhes"></div>
+        <div class="detalhes text-left" id="detalhes"></div>
     </div>
 </div>

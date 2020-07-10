@@ -8,14 +8,15 @@ namespace ExemploAlgoritimoGenetico
 
     public class Individuo
     {
-
         private String genes = "";
+
         private int aptidao = 0;
 
         //gera um indivíduo aleatório
         public Individuo(int numGenes)
         {
             genes = "";
+
             Random r = new Random();
 
             String caracteres = Algoritmo.getCaracteres();
@@ -34,6 +35,7 @@ namespace ExemploAlgoritimoGenetico
             this.genes = genes;
 
             Random r = new Random();
+
             //se for mutar, cria um gene aleatório
             if (r.NextDouble() <= Algoritmo.getTaxaDeMutacao())
             {

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace AG.Web.Domain
+﻿namespace AG.Web.Domain
 {
     public class ResultadosRequest
     {

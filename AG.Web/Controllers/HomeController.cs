@@ -39,24 +39,30 @@ namespace AG.Web.Controllers
 
             //loop até o critério de parada
             List<Geracao> geracoes = new List<Geracao>();
+            int totalDeColisoes = 0;
+            bool solucaoPerfeita = false;
 
-            while (!temSolucao && geracao < numMaxGeracoes)
+            while (geracao < numMaxGeracoes && !solucaoPerfeita)
             {
                 geracao++;
 
                 //cria nova populacao...
-                populacao = AlgoritimoGenetico.NovaGeracao(populacao, request.Eltismo);
-
+                populacao = AlgoritimoGenetico.Gerar(populacao, request.Eltismo);
+                
                 //verifica se tem a solucao...
                 temSolucao = populacao.VerificarSeTemSolucao();
 
+                totalDeColisoes += populacao.ObterIndividuos().Sum(e => e.Colisoes);
+
+                if (populacao.TemIndividuosComSolucaoPerfeita().Count > 0)
+                {
+                    var teste = populacao.TemIndividuosComSolucaoPerfeita();
+                    solucaoPerfeita = true;
+                }
                 geracoes.Add(new Geracao(populacao.ToPopulacaoComIndividuos(), temSolucao, geracao));
             }
 
-            return Json(new {
-                numMaxGeracoes,
-                geracoes
-            });
+            return Json(new { numMaxGeracoes, geracoes, totalDeColisoes });
         }
     }
 }

@@ -3,19 +3,8 @@ using System.Linq;
 
 namespace AG.Web.Domain
 {
-    public class PopulacaoComIndividuos
-    {
-        public List<Individuo> Individuos { get; private set; }
-
-        public PopulacaoComIndividuos(List<Individuo> individuos)
-        {
-            this.Individuos = individuos;
-        }
-    }
-
     public class Populacao
     {
-
         private Individuo[] individuos;
 
         private int tamPopulacao;
@@ -115,6 +104,12 @@ namespace AG.Web.Domain
         public List<Individuo> ObterIndividuos()
         {
             return this.individuos.ToList();
+        }
+
+        public List<Individuo> TemIndividuosComSolucaoPerfeita()
+        {
+            return this.individuos.Where(e => e.TemSolucaoPerfeita).ToList();
+
         }
     }
 }

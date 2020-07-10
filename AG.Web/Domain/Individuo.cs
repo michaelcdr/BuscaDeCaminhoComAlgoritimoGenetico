@@ -10,8 +10,11 @@ namespace AG.Web.Domain
 
         public int Aptidao  { get; private set; }
         public bool TemSolucao { get; private set; }
+        public bool TemSolucaoPerfeita { get;  set; }
+
         public List<string> Bits { get; private set; }
         public List<Coordenadas> Coordenadas { get; private set; }
+        public int Colisoes { get; private set; }
 
         /// <summary>
         /// Gera um indivíduo aleatório com o número de genes parametrizado.
@@ -83,6 +86,10 @@ namespace AG.Web.Domain
             Bits = detalhamentoCalculoDeAptidao.Bits;
 
             Coordenadas = detalhamentoCalculoDeAptidao.Coordenadas;
+
+            Colisoes = detalhamentoCalculoDeAptidao.Colisoes;
+
+            TemSolucaoPerfeita = detalhamentoCalculoDeAptidao.TemSolucaoPerfeita;
         }
 
         public int ObterAptidao()

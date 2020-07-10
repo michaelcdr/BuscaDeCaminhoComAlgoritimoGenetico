@@ -5,7 +5,7 @@ namespace AG.Web.Domain
     public static partial class CalculadorDeAptidao
     {
         private const int _pontosPorCelulaOcupada = 1;
-        private const int _pontosPorAtravessiaDeParedes = 10;
+        private const int _pontosPorAtravessiaDeParedes = 50;
         private const int _pontosPorSairDoCenario = 100;
 
         private const string NORTE = "01";
@@ -36,6 +36,7 @@ namespace AG.Web.Domain
             }
             return bitsDoCaminho;
         }
+
         public static DetalhamentoCalculoDeAptidao Calcular(string genes)
         {
             List<string> bitsDoCaminho = QuebrarStringACada2Caracteres(genes);
@@ -47,7 +48,8 @@ namespace AG.Web.Domain
             int posicaoY_Anterior = 0;
             bool saiuCenario = false;
             bool temSolucao = false;
-
+            bool temSolucaoPerfeita = false;
+            int colisoes = 0;
             var coordenadasLista = new List<Coordenadas>();
 
             foreach (var bitDoCaminho in bitsDoCaminho)
@@ -65,14 +67,19 @@ namespace AG.Web.Domain
                     saiuCenario = true;
 
                 if (VerificarAtravessiaDeParedes(x, y, posicaoX_Anterior, posicaoY_Anterior))
+                {
                     aptidao += _pontosPorAtravessiaDeParedes;
+                    colisoes++; 
+                }
 
                 if (VerificarSeChegouNoFim(x, y))
                     temSolucao = true;
 
                 posicaoX_Anterior = x;
                 posicaoY_Anterior = y;
-                
+
+                aptidao += _pontosPorCelulaOcupada;
+
                 coordenadasLista.Add(new Coordenadas(x, y));
             }
 
@@ -80,11 +87,16 @@ namespace AG.Web.Domain
             if (saiuCenario)
                 aptidao += _pontosPorSairDoCenario;
 
+            if ((_pontosPorCelulaOcupada * 6) == aptidao && !saiuCenario && VerificarSeChegouNoFim(x, y))
+                temSolucaoPerfeita = true;
+            
             return new DetalhamentoCalculoDeAptidao(
                 aptidao, 
                 temSolucao,
                 bitsDoCaminho,
-                coordenadasLista
+                coordenadasLista,
+                colisoes,
+                temSolucaoPerfeita
             );
         }
 
