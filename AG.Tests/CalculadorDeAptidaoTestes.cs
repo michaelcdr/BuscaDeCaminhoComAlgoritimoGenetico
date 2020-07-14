@@ -26,6 +26,7 @@ namespace AG.Tests
 
             int valorDeAptidadoEsperada = (Parametros.PontosPorCelulaOcupada * 6);
 
+
             Assert.Equal(valorDeAptidadoEsperada, valorDeAptidadoObtida);
         }
 
