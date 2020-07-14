@@ -1780,7 +1780,7 @@
       ]
     },
     "Microsoft.Extensions.FileProviders.Physical/2.2.0": {
-      "sha512": "tbDHZnBJkjYd9NjlRZ9ondDiv1Te3KYCTW2RWpR1B0e1Z8+EnFRo7qNnHkkSCixLdlPZzhjlX24d/PixQ7w2dA==",
+      "sha512": "lFYs3tCesMedXt/sUHIUlByH20qxi6DjSxOTyRvqT3YUMteqsVIGgjcF8zoVWMfvlv9/418Uk3eC3bFn8Qc+rA==",
       "type": "package",
       "path": "microsoft.extensions.fileproviders.physical/2.2.0",
       "files": [
@@ -1793,7 +1793,7 @@
       ]
     },
     "Microsoft.Extensions.FileSystemGlobbing/2.2.0": {
-      "sha512": "ZSsHZp3PyW6vk37tDEdypjgGlNtpJ0EixBMOfUod2Thx7GtwfFSAQXUQx8a8BN8vfWKGGMbp7jPWdoHx/At4wQ==",
+      "sha512": "LcDxBQvSCyvYZqAncoXJmbueO7DbHyMzu/kwGwC8oyghBXkzHG69iT4IEO63EO3R5mylbhTyydAIyQC4rt/weQ==",
       "type": "package",
       "path": "microsoft.extensions.filesystemglobbing/2.2.0",
       "files": [
@@ -2130,7 +2130,7 @@
       ]
     },
     "Microsoft.VisualStudio.Web.BrowserLink/2.2.0": {
-      "sha512": "cmeqhbB+rdMia3bj6cJaKQw1GDOqHxzDWAjoJqCnz+JYi9a2xsBdzycYy9eMEssVwLmLAUw6sWLMPMfGXAQmWA==",
+      "sha512": "5iEvISSbDBmZFDwO9uz5xXt3gZTTTb/nL8GPwuyc2++h7GRSD1sHdmBIaRnZ6QSHeqQt5tcZtAmGByZpdg6+bw==",
       "type": "package",
       "path": "microsoft.visualstudio.web.browserlink/2.2.0",
       "files": [
@@ -4564,20 +4564,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\michael\\.nuget\\packages\\": {}
+    "C:\\Users\\micha\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UCS\\2020-01 - Inteligencia computacional\\ExemploAlgoritimoGenetico\\ExemploAlgoritimoGenetico\\AG.Tests\\AG.Tests.csproj",
+      "projectUniqueName": "D:\\Projetos\\BuscaDeCaminhoComAlgoritimoGenetico\\AG.Tests\\AG.Tests.csproj",
       "projectName": "AG.Tests",
-      "projectPath": "D:\\UCS\\2020-01 - Inteligencia computacional\\ExemploAlgoritimoGenetico\\ExemploAlgoritimoGenetico\\AG.Tests\\AG.Tests.csproj",
-      "packagesPath": "C:\\Users\\michael\\.nuget\\packages\\",
-      "outputPath": "D:\\UCS\\2020-01 - Inteligencia computacional\\ExemploAlgoritimoGenetico\\ExemploAlgoritimoGenetico\\AG.Tests\\obj\\",
+      "projectPath": "D:\\Projetos\\BuscaDeCaminhoComAlgoritimoGenetico\\AG.Tests\\AG.Tests.csproj",
+      "packagesPath": "C:\\Users\\micha\\.nuget\\packages\\",
+      "outputPath": "D:\\Projetos\\BuscaDeCaminhoComAlgoritimoGenetico\\AG.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\michael\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\micha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
@@ -4589,8 +4596,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\UCS\\2020-01 - Inteligencia computacional\\ExemploAlgoritimoGenetico\\ExemploAlgoritimoGenetico\\AG.Web\\AG.Web.csproj": {
-              "projectPath": "D:\\UCS\\2020-01 - Inteligencia computacional\\ExemploAlgoritimoGenetico\\ExemploAlgoritimoGenetico\\AG.Web\\AG.Web.csproj"
+            "D:\\Projetos\\BuscaDeCaminhoComAlgoritimoGenetico\\AG.Web\\AG.Web.csproj": {
+              "projectPath": "D:\\Projetos\\BuscaDeCaminhoComAlgoritimoGenetico\\AG.Web\\AG.Web.csproj"
             }
           }
         }
@@ -4639,7 +4646,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.202\\RuntimeIdentifierGraph.json"
       }
     }
   }
