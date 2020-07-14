@@ -2,11 +2,12 @@
 
 namespace AG.Web.Domain
 {
-    public static partial class CalculadorDeAptidao
+    public static class CalculadorDeAptidao
     {
-        private const int _pontosPorCelulaOcupada = 1;
-        private const int _pontosPorAtravessiaDeParedes = 50;
-        private const int _pontosPorSairDoCenario = 100;
+
+        private static int _pontosPorCelulaOcupada = Parametros.PontosPorCelulaOcupada;
+        private static int _pontosPorAtravessiaDeParedes = Parametros.PontosPorAtravessiaDeParedes;
+        private static int _pontosPorSairDoCenario = Parametros.PontosPorSairDoCenario;
 
         private const string NORTE = "01";
         private const string LESTE = "00";
