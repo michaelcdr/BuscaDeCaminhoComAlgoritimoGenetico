@@ -57,8 +57,8 @@ namespace AG.Web.Domain
                 }
                 else
                 {
-                    filhos[0] = new Individuo(pais[0].ObterGenes());
-                    filhos[1] = new Individuo(pais[1].ObterGenes());
+                    filhos[0] = new Individuo(pais[0].ObterGenes().Count);
+                    filhos[1] = new Individuo(pais[1].ObterGenes().Count);
                 }
 
                 //adiciona os filhos na nova geração
@@ -76,14 +76,14 @@ namespace AG.Web.Domain
             Random r = new Random();
 
             //sorteia o ponto de corte
-            int pontoCorte1 = r.Next((individuo1.ObterGenes().Length / 2) - 2) + 1;
-            int pontoCorte2 = r.Next((individuo1.ObterGenes().Length / 2) - 2) + individuo1.ObterGenes().Length / 2;
+            int pontoCorte1 = r.Next((individuo1.ObterGenes().Count / 2) - 2) + 1;
+            int pontoCorte2 = r.Next((individuo1.ObterGenes().Count / 2) - 2) + individuo1.ObterGenes().Count / 2;
 
             Individuo[] filhos = new Individuo[2];
 
             //pega os genes dos pais
-            String genePai1 = individuo1.ObterGenes();
-            String genePai2 = individuo2.ObterGenes();
+            String genePai1 = string.Join("", individuo1.ObterGenes());
+            String genePai2 = string.Join("", individuo2.ObterGenes());
 
             String geneFilho1;
             String geneFilho2;

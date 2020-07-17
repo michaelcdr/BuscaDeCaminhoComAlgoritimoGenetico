@@ -4,7 +4,6 @@ namespace AG.Web.Domain
 {
     public static class CalculadorDeAptidao
     {
-
         private static int _pontosPorCelulaOcupada = Parametros.PontosPorCelulaOcupada;
         private static int _pontosPorAtravessiaDeParedes = Parametros.PontosPorAtravessiaDeParedes;
         private static int _pontosPorSairDoCenario = Parametros.PontosPorSairDoCenario;
@@ -14,33 +13,10 @@ namespace AG.Web.Domain
         private const string OESTE = "10";
         private const string SUL   = "11";
 
-        private static List<string> QuebrarStringACada2Caracteres(string genes)
+        
+        public static DetalhamentoCalculoDeAptidao Calcular(List<IDirecao> bits)
         {
-            List<string> bitsDoCaminho = new List<string>();
-
-            string bit = string.Empty;
-            
-            int contador = 0;
-            
-            for (int i = 0; i < 12; i++)
-            {
-                bit += genes[i];
-                
-                contador++;
-
-                if (contador == 2)
-                {
-                    bitsDoCaminho.Add(bit);
-                    bit = string.Empty;
-                    contador = 0;
-                }
-            }
-            return bitsDoCaminho;
-        }
-
-        public static DetalhamentoCalculoDeAptidao Calcular(string genes)
-        {
-            List<string> bitsDoCaminho = QuebrarStringACada2Caracteres(genes);
+            //List<string> bitsDoCaminho = QuebrarStringACada2Caracteres(genes);
 
             int aptidao = 0;
             int x = 0;
@@ -53,15 +29,15 @@ namespace AG.Web.Domain
             int colisoes = 0;
             var coordenadasLista = new List<Coordenadas>();
 
-            foreach (var bitDoCaminho in bitsDoCaminho)
+            foreach (var bitDoCaminho in bits)
             {
-                if (bitDoCaminho == LESTE)
+                if (bitDoCaminho is Leste)
                     x++;
-                else if (bitDoCaminho == NORTE)
+                else if (bitDoCaminho is Norte)
                     y++;
-                else if (bitDoCaminho == OESTE)
+                else if (bitDoCaminho is Oeste)
                     x--;
-                else if (bitDoCaminho == SUL)
+                else if (bitDoCaminho is Sul)
                     y--;
 
                 if (SaiuDoCenario(x, y))
@@ -94,7 +70,7 @@ namespace AG.Web.Domain
             return new DetalhamentoCalculoDeAptidao(
                 aptidao, 
                 temSolucao,
-                bitsDoCaminho,
+                bits,
                 coordenadasLista,
                 colisoes,
                 temSolucaoPerfeita

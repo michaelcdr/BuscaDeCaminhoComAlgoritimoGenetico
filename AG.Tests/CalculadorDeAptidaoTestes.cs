@@ -1,4 +1,5 @@
 ﻿using AG.Web.Domain;
+using System.Collections.Generic;
 using Xunit;
 
 namespace AG.Tests
@@ -8,7 +9,10 @@ namespace AG.Tests
         [Fact]
         public void TestarValorDeAptidaoComSaidaDoCenario()
         {
-            DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular("001111111111");
+            var bits = new List<IDirecao> {
+                new Leste(), new Sul(), new Sul(), new Sul(), new Sul(), new Sul()
+            };
+            DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular(bits);
 
             int valorDeAptidadoObtida = detalhamentoCalculoDeAptidao.Aptidao;
 
@@ -20,12 +24,16 @@ namespace AG.Tests
         [Fact]
         public void TesteDeValorDeAptidaoComChegadaAteOFimDoLabirinto()
         {
-            DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular("000001010100");
+            var bits = new List<IDirecao> 
+            {
+                new Leste(), new Leste(), new Norte(), new Norte(), new Norte(), new Leste()
+            };
+
+            DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular(bits);
             
             int valorDeAptidadoObtida = detalhamentoCalculoDeAptidao.Aptidao;
 
-            int valorDeAptidadoEsperada = (Parametros.PontosPorCelulaOcupada * 6);
-
+            int valorDeAptidadoEsperada = (Parametros.PontosPorCelulaOcupada * 6); 
 
             Assert.Equal(valorDeAptidadoEsperada, valorDeAptidadoObtida);
         }
@@ -33,7 +41,12 @@ namespace AG.Tests
         [Fact]
         public void TesteDeValorDeAptidaoQuandoOcorrerDuasColisoesEmParedes()
         {
-            DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular("000101010000");
+            var bits = new List<IDirecao>
+            {
+                new Leste(), new Norte(),new Norte(),new Norte(), new Leste(), new Leste()
+            };
+
+            DetalhamentoCalculoDeAptidao detalhamentoCalculoDeAptidao = CalculadorDeAptidao.Calcular(bits);
 
             int valorDeAptidadoObtida = detalhamentoCalculoDeAptidao.Aptidao;
 
