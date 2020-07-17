@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AG.Web.Factories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,13 +7,13 @@ namespace AG.Web.Domain
 {
     public class Individuo
     {
-        private string _genes = string.Empty;
+        private List<IDirecao> _genes = new List<IDirecao>();
 
         public int Aptidao  { get; private set; }
         public bool TemSolucao { get; private set; }
         public bool TemSolucaoPerfeita { get;  set; }
 
-        public List<string> Bits { get; private set; }
+        public List<IDirecao> Bits { get; private set; }
         public List<Coordenadas> Coordenadas { get; private set; }
         public int Colisoes { get; private set; }
 
@@ -22,16 +23,18 @@ namespace AG.Web.Domain
         /// <param name="numGenes">Numero de genes</param>
         public Individuo(int numGenes)
         {
-            _genes = string.Empty;
-
             Random r = new Random();
 
             string caracteres = AlgoritimoGenetico.ObterCaracteres();
+            
+            string genes = string.Empty;
 
             for (int i = 0; i < numGenes; i++)
-            {
-                _genes += caracteres.ElementAt(r.Next(caracteres.Length));
-            }
+                genes += caracteres.ElementAt(r.Next(caracteres.Length));
+
+            GeneFactory geneFactory = new GeneFactory();
+
+            _genes = geneFactory.GerarListaDeBits(genes);
 
             GerarAptidao();
         }
@@ -42,7 +45,9 @@ namespace AG.Web.Domain
         /// <param name="genes"></param>
         public Individuo(string genes)
         {
-            this._genes = genes;
+            GeneFactory geneFactory = new GeneFactory();
+
+            this._genes = geneFactory.GerarListaDeBits(genes);
 
             Random r = new Random();
 
@@ -65,9 +70,8 @@ namespace AG.Web.Domain
                     {
                         geneNovo += genes.ElementAt(i);
                     }
-
                 }
-                this._genes = geneNovo;
+                this._genes = geneFactory.GerarListaDeBits(geneNovo);
             }
             GerarAptidao();
         }
@@ -95,7 +99,7 @@ namespace AG.Web.Domain
         public int ObterAptidao()
             => Aptidao;
 
-        public string ObterGenes()
+        public List<IDirecao> ObterGenes()
             => _genes;
     }
 }
