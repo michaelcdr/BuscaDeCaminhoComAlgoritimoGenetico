@@ -98,7 +98,16 @@ function visualizarItem(el) {
 }
 
 function gerarDetalhe(geracoesData) {
-    
+    let joinBits = function (bits) {
+        let retorno = [];
+        if (bits) {
+            bits.forEach(bit => {
+                retorno.push(bit.valor);
+            });
+        }
+        return retorno.join('');
+    };
+
     let itens = "";
     if (geracoesData.geracoes) {
         geracoesData.geracoes.filter(a => a.temSolucao).forEach(geracao => {
@@ -114,7 +123,7 @@ function gerarDetalhe(geracoesData) {
                         itens += "<li>Aptidao: " + b.aptidao + "</li>" +
                             "<li>Colisões: " + b.colisoes + "</li>" +
                             
-                            "<li>Bits: " + b.bits.join('') + "<br> <button type='button' class='btn btn-dark' onclick='visualizarItem(this)' data-json='" + dados +"'>Visualizar solução</button></li>"
+                            "<li>Bits: " + joinBits(b.bits) + "<br> <button type='button' class='btn btn-dark' onclick='visualizarItem(this)' data-json='" + dados +"'>Visualizar solução</button></li>"
                     });
                     itens += "</ul>"
                 }
